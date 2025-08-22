@@ -1,14 +1,30 @@
-import React, { useState } from 'react';
-import { Box, Heading, Text, Button, VStack, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Box, Heading, Text, Button, VStack, useColorMode, useColorModeValue, Flex } from '@chakra-ui/react';
 import TopHeader from './TopHeader';
+import FrontPageInfo from './FrontPageInfo';
 
 function App() {
   const { toggleColorMode } = useColorMode();
-   const [showHeader, setShowHeader] = useState<boolean>(false);
+  const [showHeader, setShowHeader] = useState<boolean>(false);
+
+  const frontPageInfoRef = useRef<HTMLDivElement>(null);
 
   const bgGradient = useColorModeValue(
-    "linear(to-br, blue.50, blue.100)", "linear(to - br, blue.900, blue.800)" 
+    "linear(to-br, gray.50, gray.100)", "linear(to - br, gray.900, gray.800)"
   );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (frontPageInfoRef.current) {
+        // Show header after scrolling past 50% of FrontPageInfo height
+        const threshold = frontPageInfoRef.current.offsetHeight * 0.1;
+        setShowHeader(window.scrollY > threshold);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <Box minH="100vh"
@@ -22,6 +38,15 @@ function App() {
       <TopHeader
         showHeader={showHeader}
       />
+
+      <Flex maxW="1000px"
+          w="100%" // Ensure it takes full width on mobile
+          px={{ base: 2, md: 0 }} // Add padding on mobile
+          alignItems="center"
+          mx="auto"
+          ref={frontPageInfoRef}>
+          <FrontPageInfo />
+        </Flex>
     </Box>
   );
 }
