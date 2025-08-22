@@ -2,12 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Box, Heading, Text, Button, VStack, useColorMode, useColorModeValue, Flex } from '@chakra-ui/react';
 import TopHeader from './TopHeader';
 import FrontPageInfo from './FrontPageInfo';
+import MultiStepForm from './MultiStepForm';
 
 function App() {
   const { toggleColorMode } = useColorMode();
   const [showHeader, setShowHeader] = useState<boolean>(false);
 
   const frontPageInfoRef = useRef<HTMLDivElement>(null);
+
+  const handleFormComplete = (email: string, name: string) => {
+    console.log('User info:', { email, name });
+    // Handle form completion logic here
+  };
 
   const bgGradient = useColorModeValue(
     "linear(to-br, gray.50, gray.100)", "linear(to - br, gray.900, gray.800)"
@@ -40,13 +46,16 @@ function App() {
       />
 
       <Flex maxW="1000px"
-          w="100%" // Ensure it takes full width on mobile
-          px={{ base: 2, md: 0 }} // Add padding on mobile
-          alignItems="center"
-          mx="auto"
-          ref={frontPageInfoRef}>
-          <FrontPageInfo />
-        </Flex>
+        w="100%" // Ensure it takes full width on mobile
+        px={{ base: 2, md: 0 }} // Add padding on mobile
+        alignItems="center"
+        mx="auto"
+        ref={frontPageInfoRef}>
+        <FrontPageInfo />
+
+
+      </Flex>
+      <MultiStepForm onComplete={handleFormComplete} />
     </Box>
   );
 }

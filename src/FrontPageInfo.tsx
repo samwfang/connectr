@@ -15,7 +15,7 @@ const FrontPageInfo: React.FC<FrontPageInfoProps> = () => {
         >
             <Flex direction="column" alignItems="center" p={3}>
                 <Flex direction="column" alignItems="center">
-                    <Text fontSize="8xl" fontWeight="100" sx={{
+                    <Text fontSize={{base: "5xl", md: "8xl"}} fontWeight="100" sx={{
                         fontVariationSettings: '"wght" 50', // Lower than 100
                     }}>
                         connectr
