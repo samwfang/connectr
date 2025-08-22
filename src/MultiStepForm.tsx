@@ -42,7 +42,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
             <Text fontWeight="200" textAlign="center" fontSize={{ base: "lg", md: "xl" }}>
               enter your email
             </Text>
-            <Flex w="50vw">
+            <Flex w="40vw">
               <Input
                 type="email"
                 value={email}
@@ -67,7 +67,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
             <Text fontWeight="200" textAlign="center" fontSize={{ base: "lg", md: "xl" }}>
               enter your name
             </Text>
-            <Flex direction={{ base: "column", md: "row" }} w="50vw" gap={4}>
+            <Flex direction={{ base: "column", md: "row" }} w="40vw" gap={4}>
               <Input
                 type="text"
                 value={firstName}
@@ -157,6 +157,9 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
       minH={{ base: "200px", md: "300px" }}
       display="flex"
       alignItems="center"
+      border="1px solid"
+      borderColor="blackAlpha.300"
+      borderRadius="lg"
     >
       <Flex direction="column" gap={6} w="100%">
         <Flex direction="row" align="center" gap={3}>
