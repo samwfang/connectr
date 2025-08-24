@@ -20,8 +20,7 @@ export default function TopHeader({showHeader }: TopHeaderProps) {
             transition="opacity 0.3s ease"
             pointerEvents={showHeader ? 'auto' : 'none'}
             bg="gray.50"
-            boxShadow="sm"
-            p={4}
+            p={2}
         >
             <Flex
                 display="flex"
@@ -42,14 +41,11 @@ export default function TopHeader({showHeader }: TopHeaderProps) {
                     gap={2}
                 >
                     <Flex alignItems="center">
-                        <Text fontSize="2xl" fontWeight="bold">
-                            The University Database
+                        <Text fontSize="2xl" fontWeight="200">
+                            connectr
                         </Text>
-                        <Badge variant="subtle" colorScheme="pink" ml={1}>
-                            DEMO
-                        </Badge>
                     </Flex>
-                    <Button variant="outline" onClick={toggleColorMode}>
+                    <Button variant="minimalist" onClick={toggleColorMode}>
                         Toggle Mode
                     </Button>
 

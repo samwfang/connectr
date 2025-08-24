@@ -25,6 +25,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [isVisible, setIsVisible] = useState(true);
+  
 
   const handleStepChange = (newStep: number) => {
     setIsVisible(false);
@@ -91,7 +92,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
                 borderColor="rgba(0, 0, 0, 0.2)"
                 _focus={{ borderColor: 'rgba(0, 0, 0, 0.4)' }}
                 textAlign="center"
-                fontWeight="300"
+                fontWeight="200"
                 fontSize={{ base: "lg", md: "2xl" }}
                 autoFocus
               />
@@ -157,9 +158,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
       minH={{ base: "200px", md: "300px" }}
       display="flex"
       alignItems="center"
-      border="1px solid"
-      borderColor="blackAlpha.300"
-      borderRadius="lg"
     >
       <Flex direction="column" gap={6} w="100%">
         <Flex direction="row" align="center" gap={3}>
